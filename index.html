@@ -152,15 +152,14 @@ p{
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  margin-top: 5%;
 }
 .modalimg{
-  height:250px;
+  height:200px;
   width:auto
 }
 
 /* The Close Button */
-.close {
+.close,.close1, .close2,.close3 {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
@@ -168,10 +167,13 @@ p{
 }
 
 .close:hover,
-.close:focus {
+.close:focus,.close1:hover,.close2:hover,.close3:hover {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+#download-button:hover{
+color:black;
 } 
   </style>
 </head>
@@ -247,7 +249,7 @@ p{
       </div>
        <div id="service-bullets" class="row center">
       
-    <a class="bullet btn-small light-blue-text" id="modalBtn">forecast</a><a class="bullet btn-small light-blue-text">predict</a><a class="bullet btn-small light-blue-text">classify</a><a class="bullet btn-small light-blue-text">automate</a>
+   <a class="bullet btn-small light-blue-text" id="modalBtn">forecast</a><a class="bullet btn-small light-blue-text" id="churnBtn">predict</a><a class="bullet btn-small light-blue-text" id="classifyBtn">classify</a><a class="bullet btn-small light-blue-text" id="autoBtn">automate</a>
     <p class="black-text light center-align">We help you to generate insights from data and leverage the power of machine learning to provide scalable solutions for your business.</p>
   </div>
     <div class="row center">
@@ -258,8 +260,9 @@ p{
     
      
   </div>
-  <!--Modals ------>
-  <!-- The Modal -->
+  <!--Modals  Start ---------------------------->
+ <!--Modals ------>
+  <!-- The Modal forecast -->
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
@@ -273,13 +276,85 @@ p{
     </div>
 
     <div class="col s12 l4 ">
-      <img class="modalimg"src="data2.jpg" alt="Unsplashed background img 2"></div>
+      <img class="modalimg"src="sales.svg" alt="Unsplashed background img 2"></div>
       </div>
       
 
   </div>
 
 </div>
+
+ <!-- The Modal churn -->
+ <div id="churnmodal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    
+      <div class="row center" style="padding: 2.5%;">
+        <span class="close1">&times;</span>
+        <div class="col s12 l6">
+          <h6  class="header left light" style="font-weight: 600;">Why are my customers unsubscribing? What are the characteristics of these churning customers?</h6>
+          <h6  class="header left light">Our machine learning models can predict the likelihood of a future customer abandoning your brand or unsubscribing from your business based off your historical data. </h6>
+        </div>
+    
+        <div class="col s12 l4 ">
+          <img class="modalimg"src="churn.svg" alt="Unsplashed background img 2"></div>
+      </div>
+      
+
+  </div>
+
+</div>
+<!-- The Modal classify -->
+<div id="classifymodal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    
+      <div class="row center" style="padding: 2.5%;">
+        <span class="close2">&times;</span>
+        <div class="col s12 l6">
+          <h6  class="header left light" style="font-weight: 600;">How can I segment my customers into different groups to apply appropriate marketing strategies and optimize their experience? </h6>
+          <h6  class="header left light">Our model divides customers into different groups based on their behavior or characteristics. </h6>
+          <h6  class="header left light"> This allows your business to limit marketing waste and relate to these customers effectively to maximize the value of each customer to the business.
+            </h6>
+        </div>
+    
+        <div class="col s12 l4 ">
+          <img class="modalimg"src="segment.svg" alt="Unsplashed background img 2"></div>
+      </div>
+      
+
+  </div>
+
+</div>
+<!-- The Modal Automate -->
+<div id="automodal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    
+      <div class="row center" style="padding: 2.5%;">
+        <span class="close3">&times;</span>
+        <div class="col s12 l6">
+          <h6  class="header left light" style="font-weight: 600;">How can I automate business processes? Can I streamline my sales team’s day to day operations by providing a model which ranks lead potential?  </h6>
+          <h6  class="header left light">Our machine learning lead scoring system analyses attributes about each new lead in relation to the chances of that lead becoming a customer. </h6>
+          <h6  class="header left light">This analysis is used to score and rank all potential customers allowing sales teams to focus their energy on the most productive future customers.
+            </h6>
+        </div>
+    
+        <div class="col s12 l4 ">
+          <img class="modalimg"src="lead.svg" alt="Unsplashed background img 2"></div>
+      </div>
+      
+
+  </div>
+
+</div>
+  
+  
+  
+  
 <!--end modals -->
 
 <div class="section " style="background-color: #f7f7f7;">
@@ -456,7 +531,8 @@ p{
           document.documentElement.scrollTop = 0;
         }
         </script>
-  <script>
+ <script>
+          //forecast modal
           // Get the modal
           var modal = document.getElementById("myModal");
           
@@ -483,5 +559,89 @@ p{
             }
           }
           </script>
+          <script>
+            //churncast modal
+            // Get the modal
+            var modal1 = document.getElementById("churnmodal");
+            
+            // Get the button that opens the modal
+            var btn1 = document.getElementById("churnBtn");
+            
+            // Get the <span> element that closes the modal
+            var span1 = document.getElementsByClassName("close1")[0];
+            
+            // When the user clicks the button, open the modal 
+            btn1.onclick = function() {
+              modal1.style.display = "block";
+            }
+            
+            // When the user clicks on <span> (x), close the modal
+            span1.onclick = function() {
+              modal1.style.display = "none";
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal1) {
+                modal1.style.display = "none";
+              }
+            }
+            </script>
+            <script>
+              //classify modal
+              // Get the modal
+              var modal2 = document.getElementById("classifymodal");
+              
+              // Get the button that opens the modal
+              var btn2 = document.getElementById("classifyBtn");
+              
+              // Get the <span> element that closes the modal
+              var span2 = document.getElementsByClassName("close2")[0];
+              
+              // When the user clicks the button, open the modal 
+              btn2.onclick = function() {
+                modal2.style.display = "block";
+              }
+              
+              // When the user clicks on <span> (x), close the modal
+              span2.onclick = function() {
+                modal2.style.display = "none";
+              }
+              
+              // When the user clicks anywhere outside of the modal, close it
+              window.onclick = function(event) {
+                if (event.target == modal2) {
+                  modal2.style.display = "none";
+                }
+              }
+              </script>
+              <script>
+                //autoate modal
+                // Get the modal
+                var modal3 = document.getElementById("automodal");
+                
+                // Get the button that opens the modal
+                var btn3 = document.getElementById("autoBtn");
+                
+                // Get the <span> element that closes the modal
+                var span3 = document.getElementsByClassName("close3")[0];
+                
+                // When the user clicks the button, open the modal 
+                btn3.onclick = function() {
+                  modal3.style.display = "block";
+                }
+                
+                // When the user clicks on <span> (x), close the modal
+                span3.onclick = function() {
+                  modal3.style.display = "none";
+                }
+                
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                  if (event.target == modal3) {
+                    modal3.style.display = "none";
+                  }
+                }
+                </script>
   </body>
 </html>
